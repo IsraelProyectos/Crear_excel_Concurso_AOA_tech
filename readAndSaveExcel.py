@@ -4,7 +4,7 @@
 import wx
 from openpyxl import *
 from openpyxl.styles import Color, PatternFill, Font, Border, colors, borders, Side
-import pdb
+#import mypdb
 
 class ReadAndSaveExcell():
 	def __init__(self, pathFile):
@@ -62,7 +62,7 @@ class ReadAndSaveExcell():
 						x=13
 						w=18
 						t=6
-				#pdb.set_trace()
+				#mypdb.pdb.set_trace()
 				book = Workbook()
 				hoja1 = book.active
 
@@ -110,8 +110,8 @@ class ReadAndSaveExcell():
 									celda = hoja1.cell(row=self.z, column=y).value = reg
 									y+=1
 								self.z+=1
-				#pdb.set_trace()
-
+				#mypdb.pdb.set_trace()
+				
 				#Guardando el WorkBook donde seleccione el Usuario
 				with wx.FileDialog(None, "Save XLSX file", wildcard="XLSX files (*.xlsx)|*.xlsx",
 				   style=wx.FD_SAVE | wx.FD_OVERWRITE_PROMPT) as fileDialog:

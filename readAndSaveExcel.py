@@ -186,6 +186,7 @@ class ReadAndSaveExcell():
 						self.todas_columnas.append(self.columna_excel)
 						self.columna_excel = [ ]
 					i+=1
-				return(self.writeExcel(self.todas_columnas))
+				self.mensaje = self.writeExcel(self.todas_columnas)
 			except:
 				self.mensaje = 'El excel cargado no es el correcto'
+			return(self.mensaje)

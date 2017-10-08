@@ -4,6 +4,7 @@
 import wx
 from openpyxl import *
 from openpyxl.styles import Color, PatternFill, Font, Border, colors, borders, Side
+import pdb
 
 class ReadAndSaveExcell():
 	def __init__(self, pathFile):
@@ -25,7 +26,7 @@ class ReadAndSaveExcell():
 			self.colorMensaje = False
 
 	#Método para crear el excel pasándole lista del metodo readExcel
-	def writeExcel(self, todas_columnas):
+	def writeExcel(self):
 			try:
 				email=''
 				i=-1
@@ -61,6 +62,7 @@ class ReadAndSaveExcell():
 						x=13
 						w=18
 						t=6
+				#pdb.set_trace()
 				book = Workbook()
 				hoja1 = book.active
 
@@ -108,6 +110,7 @@ class ReadAndSaveExcell():
 									celda = hoja1.cell(row=self.z, column=y).value = reg
 									y+=1
 								self.z+=1
+				#pdb.set_trace()
 
 				#Guardando el WorkBook donde seleccione el Usuario
 				with wx.FileDialog(None, "Save XLSX file", wildcard="XLSX files (*.xlsx)|*.xlsx",
@@ -186,7 +189,7 @@ class ReadAndSaveExcell():
 						self.todas_columnas.append(self.columna_excel)
 						self.columna_excel = [ ]
 					i+=1
-				self.mensaje = self.writeExcel(self.todas_columnas)
+				self.mensaje = self.writeExcel()
 			except:
 				self.mensaje = 'El excel cargado no es el correcto'
 			return(self.mensaje)
